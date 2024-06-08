@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+
+body { 
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #ffa500;
+}
+
+
+
+header {
+    background-color: #ffe380;
+    color: black;
+    padding: 40px 40px 20px 40px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    color: #b38b00;
+    font-size: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    font-size: 20px;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: 800;
+    color: #333;
+    transition: color 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: #b38b00;
+}
+
+#yangnim_logo {
+    width: 300px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 50%;
+}
+
+#banner {
+    padding: 20px 20px 50px 20px;
+    text-align: center;
+}
+
+#banner h2 {
+    font-size: 40px;
+    margin: 20px;
+}
+
+#banner p {
+    font-size: 20px;
+}
+
+.section1 {
+    background-color: #ffe380;
+}
+
+.section2 { 
+    background-color: #FFF1BF;
+}
+
