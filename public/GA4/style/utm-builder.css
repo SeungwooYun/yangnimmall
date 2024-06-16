@@ -16,12 +16,11 @@ body {
 #header {
   display: flex;
   justify-content: center;
-  background-color: #FFF1BF;
+  background-color: #ffa500;
   color: black;
   align-items: center;
   border: none;
   height: 10vh;
-
 }
 
 #title {

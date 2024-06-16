@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/cross-domain.css">
+  <script src="./script/cross-domain.js"></script>
+  <title>Cross Domain</title>
+
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KXP35D9L');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WMXC9KL4');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXP35D9L" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WMXC9KL4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="container">
+    <div id="header">
+      <div id="title">Cross Domain</div>
+      <div id="cookie_remover_box">
+        <button id="cookie_remover_btn">cookie remove</button>
+      </div>
+    </div>
+    <div id="main">
+      <div id="cookie">
+        <p class="cookie_box">현재 GA4 쿠키는
+          <span id="GA4_cookie"></span> 입니다.
+        </p>
+        <p class="cookie_bo"> 현재 gclid는
+          <span id="GAds_cookie"></span> 입니다.
+        </p>
+      </div>
+      <div id="gclid_creator" class="gclid_creator">
+        <form action="#" class="gclid_creator">
+          <div class="gclid_creator">
+            <label class="gclid_creator" for="gclid_submit">gclid 입력하기</label>
+            <input class="gclid_creator" type="text" id="gclid_submit" required>
+          </div>
+          <button class="gclid_creator" type="submit" id="gclid_submitter">gclid 생성하기</button>
+        </form>
+      </div>
+      <div class="cross_domain_btns_box">
+        <div class="cross_domain_btns">
+          <button class="cross_domain_btn">Button 태그를 통한 교차 도메인 이동</button>
+          <span class="cross_domain_btn"> 현재 href는 <span class="cross_domain_href"></span>입니다.
+          </span>
+        </div>
+        <div class="cross_domain_btns">
+          <a href="https://seungwooyun.github.io/yangnimmall/public/" class="cross_domain_btn"> a태그 + 순수 href로 교차 도메인
+            이동</a>
+          <span class="cross_domain_btn">
+            현재 href는 <span class="cross_domain_href"></span>입니다.
+          </span>
+        </div>
+        <div class="cross_domain_btns">
+          <a href="https://seungwooyun.github.io/yangnimmall/public/" class="cross_domain_btn"> a태그 + 클릭 이벤트로 교차 도메인
+            이동</a>
+          <span class="cross_domain_btn">
+            현재 href는 <span class="cross_domain_href"></span>입니다.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
