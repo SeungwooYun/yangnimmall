@@ -25,6 +25,10 @@ header {
     align-items: center;
 }
 
+.main_logo {
+    text-decoration: none;
+}
+
 header h1 {
     color: #b38b00;
     font-size: 50px;
