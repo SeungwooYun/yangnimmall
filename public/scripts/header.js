@@ -2,7 +2,7 @@
 document.write(`
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yangnim's mall</title>
+    <title>Tom&Jerry Mall</title>
     <link rel="stylesheet" href="../style/style.css">
 
     <!-- Google tag (gtag.js) -->
