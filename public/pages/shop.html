@@ -7,9 +7,33 @@
 
 <body>
     <script src="../scripts/navbar.js"></script>
+
     <main>
         <section  class="section1">
-         <h1>샵페이지입니다</h1>
+            <div id="product-list"></div>
+
+            <script>
+                fetch('../data/products.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("data", data)
+                        const products = data.products;
+                        const productList = document.getElementById('product-list');
+        
+                        products.forEach(product => {
+                            const productCard = document.createElement('div');
+                            productCard.classList.add('product-card');
+                            productCard.innerHTML = `
+                                <h2>${product.name}</h2>
+                                <p><strong>category:</strong> ${product.category}</p>
+                                <p><strong>price:</strong> $${product.price.toFixed(2)}</p>
+                                <p>${product.description}</p>
+                            `;
+                            productList.appendChild(productCard);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching the products:', error));
+            </script>
         </section>
     </main>
     
