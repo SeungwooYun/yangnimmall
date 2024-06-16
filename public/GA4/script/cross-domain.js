@@ -30,7 +30,7 @@ function submitCrossDomainForm() {
 }
 
 function getCrossDomainFormValue() {
-  const basicURL = encodeURI("https://cherrylime69.github.io/");
+  const basicURL = encodeURI("https://seungwooyun.github.io/yangnimmall/public/GA4/cross-domain");
   // const basicURL = encodeURI("http://127.0.0.1:5500/public/GA4/cross-domain.html");
   let finalURL = '';
   const formValue = document.querySelector("form.gclid_creator input").value
