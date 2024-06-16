@@ -57,9 +57,9 @@ nav ul li a:hover {
     color: #b38b00;
 }
 
-#yangnim_logo {
-    width: 300px; /* Adjust size as needed */
-    height: auto;
+.profile_pictures {
+    width: 400px; /* Adjust size as needed */
+    height: 400px;
     border-radius: 50%;
 }
 
