@@ -10,9 +10,33 @@
     <main>
         <section class="section1">
             <h1>Contact Us</h1>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+
             <p>Thank you for your interest in Tom & Jerry Mall!  <br>
                  Please feel free to reach out to us with any questions, feedback, or inquiries you may have.</p>
-            
             <h2>Customer Support</h2>
             <p>For assistance with orders, product information, or general inquiries:</p>
             <ul>
@@ -38,6 +62,29 @@
         </section>
         
     </main>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Create an object to store the form data
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                message: message
+            };
+            
+            // Log the form data to the console
+            console.log('Form Data:', formData);
+        });
+    </script>
 
     <script src="../scripts/footer.js"></script>
     <script src="../scripts/main.js"></script>
