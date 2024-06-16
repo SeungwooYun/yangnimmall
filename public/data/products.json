@@ -1,0 +1,74 @@
+{
+  "products": [
+  {
+  "id": 1,
+  "name": "Cat Toy Fishing Rod",
+  "category": "Toys",
+  "price": 15.99,
+  "description": "Feathered fishing rod toy loved by cats"
+  },
+  {
+  "id": 2,
+  "name": "Mouse-Shaped Catnip Toy",
+  "category": "Toys",
+  "price": 7.99,
+  "description": "Soft toy shaped like a mouse filled with catnip"
+  },
+  {
+  "id": 3,
+  "name": "Automatic Feeder",
+  "category": "Essentials",
+  "price": 49.99,
+  "description": "Smart automatic feeder with programmable timer"
+  },
+  {
+  "id": 4,
+  "name": "Cat Scratcher",
+  "category": "Essentials",
+  "price": 29.99,
+  "description": "Sturdy cat scratcher made of durable material"
+  },
+  {
+  "id": 5,
+  "name": "Mouse Playpen",
+  "category": "Essentials",
+  "price": 24.99,
+  "description": "Safe and comfortable playpen for mice"
+  },
+  {
+  "id": 6,
+  "name": "Cat Condo Tower",
+  "category": "Furniture",
+  "price": 89.99,
+  "description": "Multi-tiered cat condo tower"
+  },
+  {
+  "id": 7,
+  "name": "Mouse Small House",
+  "category": "Furniture",
+  "price": 19.99,
+  "description": "Cozy small house loved by mice"
+  },
+  {
+  "id": 8,
+  "name": "Cat Grooming Brush",
+  "category": "Grooming",
+  "price": 12.99,
+  "description": "Grooming brush for smoothing cat fur"
+  },
+  {
+  "id": 9,
+  "name": "Mouse Exercise Wheel",
+  "category": "Exercise Equipment",
+  "price": 14.99,
+  "description": "Quiet exercise wheel for mice"
+  },
+  {
+  "id": 10,
+  "name": "Cat Treat Assortment",
+  "category": "Food",
+  "price": 9.99,
+  "description": "Assorted treats loved by cats"
+  }
+  ]
+  }
