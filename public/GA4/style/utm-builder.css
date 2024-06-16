@@ -16,7 +16,7 @@ body {
 #header {
   display: flex;
   justify-content: center;
-  background-color: yellow;
+  background-color: #FFF1BF;
   color: black;
   align-items: center;
   border: none;
@@ -91,6 +91,7 @@ body {
   border-radius: 20px;
   flex-grow: 1;
   border: none;
+  padding: 20px;
   font-size: 1.5em;
   color: rgb(150, 150, 245);
   cursor: pointer;

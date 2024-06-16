@@ -24,6 +24,7 @@ function getUtmFormValue() {
 
 function createUtmBtn(event) {
   event.preventDefault();
+  document.querySelector("#created_utm_btn").innerText = getUtmFormValue().split('/public')[1];
   document.querySelector("#created_utm_btn").setAttribute("href", getUtmFormValue());
 }
 
