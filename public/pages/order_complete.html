@@ -14,9 +14,11 @@
             border: 1px solid #ccc;
             text-align: center;
         }
+
         .order-complete h2 {
             margin-bottom: 20px;
         }
+
         .order-complete p {
             margin-bottom: 10px;
         }
@@ -41,37 +43,37 @@
     <script src="../scripts/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Retrieve orderId from query parameter
+            // Retrieve productId from query parameter
             const urlParams = new URLSearchParams(window.location.search);
-            const orderId = urlParams.get('orderId');
+            const productId = urlParams.get('id');
 
-            if (orderId) {
-                displayOrderDetails(orderId);
+            // Retrieve stored data from localStorage
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            const paymentInfo = JSON.parse(localStorage.getItem('paymentInfo'));
+            const purchasedItem = JSON.parse(localStorage.getItem('purchasedItem'));
+
+            console.log("productId", productId, "purchasedItem.productId", purchasedItem.productId)
+
+            if (userData && paymentInfo && purchasedItem) {
+                displayOrderDetails(userData, purchasedItem);
+                // Clear localStorage after displaying order details (optional)
+                localStorage.removeItem('userData');
+                localStorage.removeItem('paymentInfo');
+                localStorage.removeItem('purchasedItem');
             } else {
-                console.error('Order ID not found in URL.');
-                displayErrorMessage('Order details not found.');
+                console.error('Stored order information not found or does not match current context.');
+                displayErrorMessage('Order details not found or invalid.');
             }
         });
 
-        function displayOrderDetails(orderId) {
-            // Retrieve order details from session storage
-            const storedOrderDetails = sessionStorage.getItem(`order_${orderId}`);
-            if (storedOrderDetails) {
-                const orderDetails = JSON.parse(storedOrderDetails);
-                const orderDetailsDiv = document.getElementById('order-details');
-                orderDetailsDiv.innerHTML = `
-                    <p><strong>Order ID:</strong> ${orderId}</p>
-                    <p><strong>Name:</strong> ${orderDetails.name}</p>
-                    <p><strong>Email:</strong> ${orderDetails.email}</p>
-                    <p><strong>Product:</strong> ${orderDetails.product}</p>
-                    <p><strong>Price:</strong> RM${orderDetails.price.toFixed(2)}</p>
-                `;
-                // Optional: Clear session storage after displaying order details
-                sessionStorage.removeItem(`order_${orderId}`);
-            } else {
-                console.error('Order details not found in session storage.');
-                displayErrorMessage('Order details not found.');
-            }
+        function displayOrderDetails(userData, purchasedItem) {
+            const orderDetailsDiv = document.getElementById('order-details');
+            orderDetailsDiv.innerHTML = `
+                <p><strong>Name:</strong> ${userData.name}</p>
+                <p><strong>Email:</strong> ${userData.email}</p>
+                <p><strong>Product:</strong> ${purchasedItem.productName}</p>
+                <p><strong>Price:</strong> RM${purchasedItem.productPrice}</p>
+            `;
         }
 
         function displayErrorMessage(message) {
