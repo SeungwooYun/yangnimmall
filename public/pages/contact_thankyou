@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../scripts/header.js"></script>
+</head>
+
+<body>
+    <script src="../scripts/navbar.js"></script>
+    <main>
+    <h1> ㄱㅅㄱㅅ </h1>
+    </main>
+    <script src="../scripts/footer.js"></script>
+    <script src="../scripts/main.js"></script>
+</body>
+
+</html>
