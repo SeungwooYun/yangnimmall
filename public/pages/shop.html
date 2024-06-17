@@ -13,6 +13,15 @@
             <div id="product-list"></div>
     
             <script>
+
+                function viewProduct(productId) {
+                    // Store the selected productId in localStorage
+                    localStorage.setItem('selectedProductId', productId);
+                    
+                    // Redirect to view_item.html
+                    window.location.href = `view_item.html?id=${productId}`;
+                }
+
                 fetch('../data/products.json')
                     .then(response => response.json())
                     .then(data => {
@@ -23,12 +32,17 @@
                             const productCard = document.createElement('div');
                             productCard.classList.add('product-card');
                             productCard.innerHTML = `
-                             <img src="${product.image}" alt="${product.name}" class="product-image">
+                             <img src="${product.image}" alt="${product.name}" class="product-image")>
                                 <h2>${product.name}</h2>
                                 <p><strong>Category:</strong> ${product.category}</p>
                                 <p><strong>Price:</strong> RM${product.price.toFixed(2)}</p>
                                 <p>${product.description}</p>
                             `;
+
+                            productCard.addEventListener('click', function() {
+                                viewProduct(product.id);
+                            });
+                            
                             productList.appendChild(productCard);
                         });
                     })
