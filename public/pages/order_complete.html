@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Order Complete</title>
+    <script src="../scripts/header.js"></script>
+    <style>
+        /* Example styles for order complete page */
+        .order-complete {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .order-complete h2 {
+            margin-bottom: 20px;
+        }
+        .order-complete p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../scripts/navbar.js"></script>
+
+    <main>
+        <section class="section1">
+            <div class="order-complete">
+                <h2>Order Complete</h2>
+                <p>Your order has been successfully processed.</p>
+                <div id="order-details"></div>
+                <p>Thank you for shopping with us!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="../scripts/footer.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve orderId from query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('orderId');
+
+            if (orderId) {
+                displayOrderDetails(orderId);
+            } else {
+                console.error('Order ID not found in URL.');
+                displayErrorMessage('Order details not found.');
+            }
+        });
+
+        function displayOrderDetails(orderId) {
+            // Retrieve order details from session storage
+            const storedOrderDetails = sessionStorage.getItem(`order_${orderId}`);
+            if (storedOrderDetails) {
+                const orderDetails = JSON.parse(storedOrderDetails);
+                const orderDetailsDiv = document.getElementById('order-details');
+                orderDetailsDiv.innerHTML = `
+                    <p><strong>Order ID:</strong> ${orderId}</p>
+                    <p><strong>Name:</strong> ${orderDetails.name}</p>
+                    <p><strong>Email:</strong> ${orderDetails.email}</p>
+                    <p><strong>Product:</strong> ${orderDetails.product}</p>
+                    <p><strong>Price:</strong> RM${orderDetails.price.toFixed(2)}</p>
+                `;
+                // Optional: Clear session storage after displaying order details
+                sessionStorage.removeItem(`order_${orderId}`);
+            } else {
+                console.error('Order details not found in session storage.');
+                displayErrorMessage('Order details not found.');
+            }
+        }
+
+        function displayErrorMessage(message) {
+            const orderDetailsDiv = document.getElementById('order-details');
+            orderDetailsDiv.innerHTML = `<p>${message}</p>`;
+        }
+    </script>
+</body>
+
+</html>

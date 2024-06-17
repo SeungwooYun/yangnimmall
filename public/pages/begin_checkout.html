@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Begin Checkout</title>
+    <script src="../scripts/header.js"></script>
+    <style>
+        /* Example styles for checkout form */
+        .checkout-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .checkout-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .checkout-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .checkout-form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .checkout-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../scripts/navbar.js"></script>
+
+    <main>
+        <section class="section1">
+            <div id="checkout-form" class="checkout-form"></div>
+    
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Retrieve productId from query parameter
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const productId = urlParams.get('id');
+                    
+                    if (productId) {
+                        fetchProductDetails(productId);
+                    } else {
+                        console.error('Product ID not found in URL.');
+                    }
+                });
+                
+                function fetchProductDetails(productId) {
+                    fetch('../data/products.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            const product = data.products.find(p => p.id == productId);
+                            
+                            if (product) {
+                                displayCheckoutForm(product);
+                            } else {
+                                console.error('Product not found with id:', productId);
+                                displayErrorMessage('Product not found.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching product details:', error);
+                            displayErrorMessage('Failed to fetch product details.');
+                        });
+                }
+                
+                function displayCheckoutForm(product) {
+                    const checkoutForm = document.getElementById('checkout-form');
+                    checkoutForm.innerHTML = `
+                        <h2>Checkout</h2>
+                        <p><strong>Product:</strong> ${product.name}</p>
+                        <p><strong>Price:</strong> RM${product.price.toFixed(2)}</p>
+                        
+                        <form id="payment-form" class="payment-form">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number:</label>
+                                <input type="text" id="cardNumber" name="cardNumber" required>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date:</label>
+                                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="cvv">CVV:</label>
+                                <input type="text" id="cvv" name="cvv" required>
+                            </div>
+    
+                            <button type="submit">Complete Purchase</button>
+                        </form>
+                    `;
+    
+                    const paymentForm = document.getElementById('payment-form');
+                    paymentForm.addEventListener('submit', function(event) {
+                        event.preventDefault(); // Prevent default form submission
+                        // Process payment logic can be added here
+                        alert('Payment processed successfully!');
+                        window.location.href = 'order_complete.html?id=${productId}'; // Redirect to order purchase page
+                    });
+                }
+    
+                function displayErrorMessage(message) {
+                    const checkoutForm = document.getElementById('checkout-form');
+                    checkoutForm.innerHTML = `<p>${message}</p>`;
+                }
+            </script>
+        </section>
+    </main>
+    
+    <script src="../scripts/footer.js"></script>
+    <script src="../scripts/main.js"></script>
+</body>
+
+</html>

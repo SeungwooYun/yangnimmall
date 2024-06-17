@@ -54,7 +54,9 @@
                                     <p><strong>Category:</strong> ${product.category}</p>
                                     <p><strong>Price:</strong> RM${product.price.toFixed(2)}</p>
                                     <p>${product.description}</p>
+                                    
                                     <button onclick="goBack()">Go Back to Shop</button>
+                                    <button onclick="beginCheckout(${product.id})">Buy Now</button>
                                 `;
                             } else {
                                 console.error('Product not found with id:', productId);
@@ -64,6 +66,12 @@
                         .catch(error => console.error('Error fetching product details:', error));
                 }
                 
+                function beginCheckout(productId) {
+                    // Redirect to begin_checkout.html with productId as query parameter
+                    window.location.href = `begin_checkout.html?id=${productId}`;
+                }
+
+
                 // Function to go back to shop page
                 function goBack() {
                     window.history.back();
