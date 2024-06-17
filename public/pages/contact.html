@@ -83,6 +83,7 @@
             
             // Log the form data to the console
             console.log('Form Data:', formData);
+            sessionStorage.setItem('formData', JSON.stringify(formData))
             window.location.href = 'contact_thankyou.html';
         });
     </script>
