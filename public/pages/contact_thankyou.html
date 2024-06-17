@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../scripts/header.js"></script>
+</head>
+
+<body>
+    <script src="../scripts/navbar.js"></script>
+
+    <main>
+
+        <div class="contact-form">
+        <h1>THANK YOU</h1>
+        <h2>너의 개인정보를 잘 받았다</h2>
+
+        <div id="formDataDisplay">
+            <!-- Form data will be displayed here -->
+        </div>
+    </div>
+    </main>
+
+
+    <script src="../scripts/footer.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve formData from local storage
+            const storedFormData = sessionStorage.getItem('formData');
+            if (storedFormData) {
+                const formData = JSON.parse(storedFormData);
+                // Display form data on the page
+                const formDataDisplay = document.getElementById('formDataDisplay');
+                formDataDisplay.innerHTML = `
+                    <p><strong>Name:</strong> ${formData.name}</p>
+                    <p><strong>Email:</strong> ${formData.email}</p>
+                    <p><strong>Phone Number:</strong> ${formData.phone}</p>
+                    <p><strong>Message:</strong> ${formData.message}</p>
+                `;
+            } else {
+                console.error('Form Data not found in session storage.');
+            }
+
+            // Optional: Clear local storage after retrieving formData
+            localStorage.removeItem('formData');
+        });
+    </script>
+</body>
+</html>
