@@ -5,70 +5,64 @@
   "name": "Cat Toy Fishing Rod",
   "category": "Toys",
   "price": 15.99,
-  "description": "Feathered fishing rod toy loved by cats"
+  "description": "Feathered fishing rod toy loved by cats",
+  "image" : "https://m.media-amazon.com/images/I/718cHCNpKxL._AC_UF1000,1000_QL80_.jpg"
   },
   {
   "id": 2,
   "name": "Mouse-Shaped Catnip Toy",
   "category": "Toys",
   "price": 7.99,
-  "description": "Soft toy shaped like a mouse filled with catnip"
+  "description": "Soft toy shaped like a mouse filled with catnip",
+  "image" : "https://m.media-amazon.com/images/I/51ZXT+tosWL.jpg"
   },
   {
   "id": 3,
   "name": "Automatic Feeder",
   "category": "Essentials",
   "price": 49.99,
-  "description": "Smart automatic feeder with programmable timer"
+  "description": "Smart automatic feeder with programmable timer",
+  "image" : "https://down-my.img.susercontent.com/file/my-11134207-7r992-lncp6psyx6d97f"
   },
   {
   "id": 4,
   "name": "Cat Scratcher",
   "category": "Essentials",
   "price": 29.99,
-  "description": "Sturdy cat scratcher made of durable material"
+  "description": "Sturdy cat scratcher made of durable material",
+  "image" : "https://m.media-amazon.com/images/I/71qcgKRFWaL.jpg"
   },
   {
   "id": 5,
   "name": "Mouse Playpen",
   "category": "Essentials",
   "price": 24.99,
-  "description": "Safe and comfortable playpen for mice"
+  "description": "Safe and comfortable playpen for mice",
+  "image" : "https://i.ytimg.com/vi/rE60UKHXtFw/maxresdefault.jpg"
   },
   {
   "id": 6,
-  "name": "Cat Condo Tower",
+  "name": "mice wood",
   "category": "Furniture",
   "price": 89.99,
-  "description": "Multi-tiered cat condo tower"
+  "description": "wood for mice",
+  "image" : "https://www.thesprucepets.com/thmb/DVGTNvohZqGotYYEK31y6A7Nmfc=/fit-in/1204x760/filters:no_upscale():strip_icc()/NiteangelNaturalWoodenTunnelTubeToy-1cc5a7f3c5154479bf04197a89db6507.jpg"
   },
   {
   "id": 7,
   "name": "Mouse Small House",
   "category": "Furniture",
   "price": 19.99,
-  "description": "Cozy small house loved by mice"
+  "description": "Cozy small house loved by mice",
+  "image" : "https://i.ytimg.com/vi/JJ6YheQnc60/maxresdefault.jpg"
   },
   {
   "id": 8,
   "name": "Cat Grooming Brush",
   "category": "Grooming",
   "price": 12.99,
-  "description": "Grooming brush for smoothing cat fur"
-  },
-  {
-  "id": 9,
-  "name": "Mouse Exercise Wheel",
-  "category": "Exercise Equipment",
-  "price": 14.99,
-  "description": "Quiet exercise wheel for mice"
-  },
-  {
-  "id": 10,
-  "name": "Cat Treat Assortment",
-  "category": "Food",
-  "price": 9.99,
-  "description": "Assorted treats loved by cats"
+  "description": "Grooming brush for smoothing cat fur",
+  "image" : "https://m.media-amazon.com/images/I/41KLVMlxkfL._AC_.jpg"
   }
   ]
   }
