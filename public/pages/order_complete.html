@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Order Complete</title>
+    <script src="../scripts/header.js"></script>
+    <style>
+        /* Example styles for order complete page */
+        .order-complete {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .order-complete h2 {
+            margin-bottom: 20px;
+        }
+
+        .order-complete p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../scripts/navbar.js"></script>
+
+    <main>
+        <section class="section1">
+            <div class="order-complete">
+                <h2>Order Complete</h2>
+                <p>Your order has been successfully processed.</p>
+                <div id="order-details"></div>
+                <p>Thank you for shopping with us!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="../scripts/footer.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve productId from query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            // Retrieve stored data from localStorage
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            const paymentInfo = JSON.parse(localStorage.getItem('paymentInfo'));
+            const purchasedItem = JSON.parse(localStorage.getItem('purchasedItem'));
+
+            console.log("productId", productId, "purchasedItem.productId", purchasedItem.productId)
+
+            if (userData && paymentInfo && purchasedItem) {
+                displayOrderDetails(userData, purchasedItem);
+                // Clear localStorage after displaying order details (optional)
+                localStorage.removeItem('userData');
+                localStorage.removeItem('paymentInfo');
+                localStorage.removeItem('purchasedItem');
+            } else {
+                console.error('Stored order information not found or does not match current context.');
+                displayErrorMessage('Order details not found or invalid.');
+            }
+        });
+
+        function displayOrderDetails(userData, purchasedItem) {
+            const orderDetailsDiv = document.getElementById('order-details');
+            orderDetailsDiv.innerHTML = `
+                <p><strong>Name:</strong> ${userData.name}</p>
+                <p><strong>Email:</strong> ${userData.email}</p>
+                <p><strong>Product:</strong> ${purchasedItem.productName}</p>
+                <p><strong>Price:</strong> RM${purchasedItem.productPrice}</p>
+            `;
+        }
+
+        function displayErrorMessage(message) {
+            const orderDetailsDiv = document.getElementById('order-details');
+            orderDetailsDiv.innerHTML = `<p>${message}</p>`;
+        }
+    </script>
+</body>
+
+</html>

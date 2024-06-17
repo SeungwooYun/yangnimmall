@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Item View</title>
+    <script src="../scripts/header.js"></script>
+    <style>
+        /* Example styles for product details */
+        .product-details {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .product-details img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../scripts/navbar.js"></script>
+
+    <main>
+        <section class="section1">
+            <div id="product-details" class="product-details"></div>
+    
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Retrieve productId from query parameter
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const productId = urlParams.get('id');
+                    
+                    if (productId) {
+                        fetchProductDetails(productId);
+                    } else {
+                        console.error('Product ID not found in URL.');
+                    }
+                });
+                
+                function fetchProductDetails(productId) {
+                    fetch('../data/products.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            const product = data.products.find(p => p.id == productId);
+                            
+                            if (product) {
+                                const productDetails = document.getElementById('product-details');
+                                productDetails.innerHTML = `
+                                    <img src="${product.image}" alt="${product.name}">
+                                    <h2>${product.name}</h2>
+                                    <p><strong>Category:</strong> ${product.category}</p>
+                                    <p><strong>Price:</strong> RM${product.price.toFixed(2)}</p>
+                                    <p>${product.description}</p>
+                                    
+                                    <button onclick="goBack()">Go Back to Shop</button>
+                                    <button onclick="beginCheckout(${product.id})">Buy Now</button>
+                                `;
+                            } else {
+                                console.error('Product not found with id:', productId);
+                                productDetails.innerHTML = '<p>Product not found.</p>';
+                            }
+                        })
+                        .catch(error => console.error('Error fetching product details:', error));
+                }
+                
+                function beginCheckout(productId) {
+                    // Redirect to begin_checkout.html with productId as query parameter
+                    window.location.href = `begin_checkout.html?id=${productId}`;
+                }
+
+
+                // Function to go back to shop page
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
+        </section>
+    </main>
+    
+    <script src="../scripts/footer.js"></script>
+    <script src="../scripts/main.js"></script>
+</body>
+
+</html>
