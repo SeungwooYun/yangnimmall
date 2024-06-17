@@ -40,22 +40,51 @@ nav ul {
     list-style-type: none;
     display: flex;
     font-size: 20px;
+    padding: 0;
 }
 
 nav ul li {
     margin-right: 20px;
+    display: inline-block;
+    position: relative;
 }
 
 nav ul li a {
     text-decoration: none;
     font-weight: 800;
     color: #333;
+    display: block;
+    text-decoration: none;
     transition: color 0.2s ease;
+}
+
+.sub-menu {
+    display: none; /* 기본적으로 서브메뉴를 숨김 */
+    position: absolute; /* 메인 메뉴 아이템을 기준으로 절대 위치 지정 */
+    z-index: 1; /* 다른 요소들보다 위에 표시되도록 z-index 설정 */
+    width: 200px;
+}
+
+li:hover .sub-menu {
+    display: block; /* 마우스를 올리면 서브메뉴를 보이도록 함 */
+}
+
+.sub-menu li {
+    display: block;
 }
 
 nav ul li a:hover {
     color: #b38b00;
 }
+
+/* 링크 스타일 */
+.sub-menu a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+}
+
 
 .profile_pictures {
     width: 400px;
