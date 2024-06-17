@@ -16,7 +16,11 @@ document.write(`
                     <li><a href="./shop.html">Shop</a></li>
                     <li><a href="./about.html">About</a></li>
                     <li><a href="./contact.html">Contact</a></li>
-                    <li><a href="../GA4/utm-builder.html">GA4 UTM builder</a></li>
+                            <li><a href="#">GA4</a>
+                        <ul class="sub-menu">
+                            <li><a href="../GA4/utm-builder.html">utm builder</a></li>
+                            <li><a href="../GA4/cross-domain.html">cross-domain</a></li>
+                          </ul></li>
                 </ul>
             </nav>
         </div>
