@@ -153,9 +153,13 @@ img.profile_pictures:hover {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 20px;
-    width: 200px;
+    width: 600px;
     box-sizing: border-box;
     transition: transform 0.3s;
+}
+
+.product-image {
+    width: 300px;
 }
 
 .product-card:hover {

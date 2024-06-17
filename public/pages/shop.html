@@ -9,24 +9,24 @@
     <script src="../scripts/navbar.js"></script>
 
     <main>
-        <section  class="section1">
+        <section class="section1">
             <div id="product-list"></div>
-
+    
             <script>
                 fetch('../data/products.json')
                     .then(response => response.json())
                     .then(data => {
-                        console.log("data", data)
                         const products = data.products;
                         const productList = document.getElementById('product-list');
-        
+    
                         products.forEach(product => {
                             const productCard = document.createElement('div');
                             productCard.classList.add('product-card');
                             productCard.innerHTML = `
+                             <img src="${product.image}" alt="${product.name}" class="product-image">
                                 <h2>${product.name}</h2>
-                                <p><strong>category:</strong> ${product.category}</p>
-                                <p><strong>price:</strong> RM${product.price.toFixed(2)}</p>
+                                <p><strong>Category:</strong> ${product.category}</p>
+                                <p><strong>Price:</strong> RM${product.price.toFixed(2)}</p>
                                 <p>${product.description}</p>
                             `;
                             productList.appendChild(productCard);
@@ -36,6 +36,7 @@
             </script>
         </section>
     </main>
+    
     
     <script src="../scripts/footer.js"></script>
     <script src="../scripts/main.js"></script>
