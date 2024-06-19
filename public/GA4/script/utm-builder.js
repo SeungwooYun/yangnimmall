@@ -48,7 +48,7 @@ function deleteCookie(name) {
   });
 
   // 현재 도메인에 대한 최종 삭제 시도
-  document.cookie = `${name}=; expires=${date}; path=/;`;
+  document.cookie = `${name}=; domain=${hostName}; expires=${date}; path=/;`;
 }
 
 function getGA4Cookie() {
