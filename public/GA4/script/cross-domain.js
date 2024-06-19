@@ -103,7 +103,7 @@ function deleteGA4Cookie() {
   displayCookie();
 }
 
-export function clickGA4CookieRemoveBtn() {
+function clickGA4CookieRemoveBtn() {
   document.querySelector("#cookie_remover_btn").addEventListener("click", deleteGA4Cookie);
 }
 
