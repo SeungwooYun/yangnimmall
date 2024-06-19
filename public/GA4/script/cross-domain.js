@@ -70,6 +70,7 @@ function deleteCookie(name) {
   var domainParts = window.location.hostname.split('.');
   var pathArray = window.location.pathname.split('/');
   var date = new Date(0).toUTCString();
+  var hostName = "." + window.location.hostname;
 
   // 시도할 도메인과 경로 조합 배열
   var domainCombinations = domainParts.map((part, index) => domainParts.slice(index).join('.'));
@@ -86,7 +87,7 @@ function deleteCookie(name) {
   });
 
   // 현재 도메인에 대한 최종 삭제 시도
-  document.cookie = `${name}=; expires=${date}; path=/;`;
+  document.cookie = `${name}=; domain=${hostName}; expires=${date}; path=/;`;
 }
 
 function getGA4Cookie() {
