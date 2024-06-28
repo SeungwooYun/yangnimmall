@@ -112,6 +112,7 @@
             orderDetailsDiv.innerHTML = `<p>${message}</p>`;
         }
     </script>
+    <script>
     document.addEventListener('DOMContentLoaded', (event) => {
 var product = document.getElementById('order-details');
 var productPrice = product.innerText.match(/Price:\s*RM(\d+(\.\d+)?)/)[1].trim();
@@ -130,6 +131,7 @@ gtag('set', 'user_data', {
       'currency': 'MYR',
 	 		'email' : email
   })}})
+</script>
 </body>
 
 </html>
