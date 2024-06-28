@@ -23,6 +23,15 @@
             margin-bottom: 10px;
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-12345678"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-12345678', {'allow_enhanced_conversions':true});
+</script>
 </head>
 
 <body>
@@ -41,6 +50,28 @@
 
     <script src="../scripts/footer.js"></script>
     <script src="../scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+        var product = document.getElementById('order-details');
+        var productPrice = product.innerText.match(/Price:\s*RM(\d+(\.\d+)?)/)[1].trim();
+        var productId = product.innerText.match(/Product:\s*([^\n\r]+)/)[1].trim();
+        var email = product.innerText.match(/Email:\s*([^\n\r]+)/)[1].trim();
+        if(window.location.href.includes('order_complete.html')){
+        
+        gtag('set', 'user_data', {
+        "email": email,
+        });
+            
+         gtag('event', 'conversion', {
+              'send_to': 'AW-12345678/purchase',
+              'value': productPrice,
+              'product': productId,
+              'currency': 'MYR',
+                     'email' : email
+          })}})
+        
+        </script>
+        
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Retrieve productId from query parameter
