@@ -42,6 +42,28 @@
     <script src="../scripts/footer.js"></script>
     <script src="../scripts/main.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+        var product = document.getElementById('order-details');
+        var productPrice = product.innerText.match(/Price:\s*RM(\d+(\.\d+)?)/)[1].trim();
+        var productId = product.innerText.match(/Product:\s*([^\n\r]+)/)[1].trim();
+        var email = product.innerText.match(/Email:\s*([^\n\r]+)/)[1].trim();
+        if(window.location.href.includes('order_complete.html')){
+        
+        gtag('set', 'user_data', {
+        "email": email,
+        });
+            
+         gtag('event', 'conversion', {
+              'send_to': 'AW-12345678/purchase',
+              'value': productPrice,
+              'product': productId,
+              'currency': 'MYR',
+                     'email' : email
+          })}})
+        
+        </script>
+        
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Retrieve productId from query parameter
             const urlParams = new URLSearchParams(window.location.search);
@@ -81,6 +103,24 @@
             orderDetailsDiv.innerHTML = `<p>${message}</p>`;
         }
     </script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+var product = document.getElementById('order-details');
+var productPrice = product.innerText.match(/Price:\s*RM(\d+(\.\d+)?)/)[1].trim();
+var productId = product.innerText.match(/Product:\s*([^\n\r]+)/)[1].trim();
+var email = product.innerText.match(/Email:\s*([^\n\r]+)/)[1].trim();
+if(window.location.href.includes('order_complete.html')){
+
+gtag('set', 'user_data', {
+"email": email,
+});
+	
+ gtag('event', 'conversion', {
+      'send_to': 'AW-12345678/purchase',
+      'value': productPrice,
+      'product': productId,
+      'currency': 'MYR',
+	 		'email' : email
+  })}})
 </body>
 
 </html>
